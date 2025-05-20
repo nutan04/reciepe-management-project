@@ -21,18 +21,18 @@ def reciepe(request):
             receipe_image =  receipe_image
         )
 
-        return redirect('/reciepe/')
+        return redirect('/list-reciepe/')
     
     
 
-    queryset = Receipe.objects.all()
+    # queryset = Receipe.objects.all()
     
 
-    if request.GET.get('search'):
-        queryset = queryset.filter(receipe_name__icontains = request.GET.get('search'))
+    # if request.GET.get('search'):
+    #     queryset = queryset.filter(receipe_name__icontains = request.GET.get('search'))
 
-    context = {'reciepes' : queryset}
-    return render(request, "reciepe.html", context)
+    # context = {'reciepes' : queryset}
+    return render(request, "reciepe.html",)
 
 def update_receipe(request,id):
     queryset = Receipe.objects.get(id = id)
@@ -49,7 +49,7 @@ def update_receipe(request,id):
             queryset.receipe_image = receipe_image
         
         queryset.save()
-        return redirect('/reciepe/')
+        return redirect('/list-reciepe/')
     
     context = {'reciepe' : queryset}
     return render(request, "update_reciepe.html", context)
@@ -59,5 +59,14 @@ def delete_receipe(request,id):
     # return HttpResponse("a")
     queryset = Receipe.objects.get(id = id)
     queryset.delete()
-    return redirect('/reciepe/')
+    return redirect('/list-reciepe/')
 
+def list_receipe(request):
+    queryset = Receipe.objects.all()
+    
+
+    if request.GET.get('search'):
+        queryset = queryset.filter(receipe_name__icontains = request.GET.get('search'))
+
+    context = {'reciepes' : queryset}
+    return render(request, "list_reciepe.html", context)
