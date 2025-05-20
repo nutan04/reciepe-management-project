@@ -29,7 +29,7 @@ urlpatterns = [
     path('list-reciepe/', list_receipe, name = "list_receipe"),
     path('delete-receipe/<id>/', delete_receipe, name = "delete_receipe"),
     path('update-receipe/<id>/', update_receipe, name = "update_receipe"),
-
+    path('show-receipe/<id>/', show_reciepe, name = "show_reciepe"),
     path('about/', about, name = "about"),
     path('contact/', contact, name = "contact"),
 
