@@ -1,0 +1,52 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Tutorial</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head> -->
+
+<!-- <body> -->
+{% extends "base.html" %}
+{% block start %}
+
+
+<h1>This is the template engine</h1>
+<h2>This is the h2 tag</h2>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci voluptatum distinctio aut facere? Modi tenetur
+    consequatur iste, voluptatem quas iure officiis eum aliquam illum neque nulla doloremque, blanditiis at dolores!
+</p>
+<a href="/about/">about</a>
+<br>
+<a href="/contact/">Contact</a>
+<table style="width:100%">
+    <tr>
+        <th>Sr no</th>
+        <th>Firstname</th>
+        <th>Age</th>
+        <th>Can Vote</th>
+    </tr>
+    {% for people in peoples %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{people.name}}</td>
+        <td>{{people.age}}</td>
+        <td> {% if people.age >= 18 %} eligible {% else %} Not eligible {% endif %} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+<!-- <script>
+        console.log("hello");
+    </script>
+</body>
+
+</html> -->
